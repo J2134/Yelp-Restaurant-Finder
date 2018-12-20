@@ -19,9 +19,6 @@
     <br />
     <hr />
     <br />
-
-
-
       <div class="details">
         <img
           [src]="restaurant?.image_url"
@@ -39,5 +36,22 @@
         <p>{{ restaurant?.phone }}</p>
         <p>{{ delivery }}</p>
       </div>
+      <br/>
+      <hr/>
+      <div *ngIf="restaurant" class="results">
+          <div class="map">
+            <agm-map
+              [zoom]="15"
+              [latitude]="restaurant?.coordinates.latitude"
+              [longitude]="restaurant?.coordinates.longitude"
+            >
+              <agm-marker
+                [latitude]="restaurant?.coordinates.latitude"
+                [longitude]="restaurant?.coordinates.longitude"
+              >
+              </agm-marker>
+            </agm-map>
+          </div>
+
     </div>
 
