@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="centered">
+    <form>
+      <label
+        >Price:
+        <select #price placeholder="price">
+          <option value="1">$</option>
+          <option value="2">$$</option>
+          <option value="3">$$$</option>
+          <option value="4">$$$$</option>
+        </select>
+      </label>
+      <label> City: <input #city placeholder="enter city" required /> </label>
+      <label> State: <input #state placeholder="enter state" /> </label>
+      <button (click)="getRestaurant(price.value, city.value, state.value)">
+        Search
+      </button>
+    </form>
+    <br />
+    <hr />
+    <br />
+
+
+
+      <div class="details">
+        <img
+          [src]="restaurant?.image_url"
+          alt="image"
+          height="400px"
+          width="auto"
+        />
+        <br />
+        <img src="assets/{{restaurant?.rating}}.png" alt="rating" />
+        <p>{{ restaurant?.name }}</p>
+        <p>
+          {{ restaurant?.location.address1 }}, {{ restaurant?.location.city }},
+          {{ restaurant?.location.state }} {{ restaurant?.location.zip_code }}
+        </p>
+        <p>{{ restaurant?.phone }}</p>
+        <p>{{ delivery }}</p>
+      </div>
+    </div>
+
